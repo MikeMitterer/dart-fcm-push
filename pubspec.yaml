@@ -1,0 +1,38 @@
+name: fcm_push
+description: Add your description for fcm-push
+author: Mike Mitterer <office@mikemitterer.at>
+homepage: https://github.com/Mike Mitterer/dart-fcm-push
+
+version: 1.0.0
+
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+
+# Add the bin/packages.dart script to the scripts pub installs.
+# Activate local repo:
+#   pub global activate --source path .
+#
+executables:
+  fcm-push:
+
+dependencies:
+  logging: any
+  logging_handlers: any
+  console_log_handler: any
+
+  validate: any
+
+  args: any
+  yaml: any
+
+  firebase: ^3.0.0
+
+  validate: any
+
+  tuple: any
+
+  http_utils: any
+
+dev_dependencies:
+  test: any
+  grinder: any
