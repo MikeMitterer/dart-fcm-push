@@ -16,26 +16,26 @@ executables:
   fcm-push:
 
 dependencies:
-  logging: any
-  logging_handlers: any
-  console_log_handler: any
+  logging: ^0.11.0
+  logging_handlers: ^0.8.0
+  console_log_handler: ^0.2.0
 
-  validate: any
+  validate: ^1.5.0
 
-  args: any
-  yaml: any
+  args: ^0.13.0
+  yaml: ^2.1.0
 
   firebase: ^3.0.0
 
-  validate: any
+  validate: ^1.5.0
 
-  tuple: any
+  tuple: ^1.0.0
 
-  http_utils: any
+  http_utils: ^1.4.0
 
   yaml: ^2.1.0
   
-  ansicolor: any
+  ansicolor: ^0.0.9
 
 dev_dependencies:
   test: any
