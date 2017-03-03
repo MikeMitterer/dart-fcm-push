@@ -1,13 +1,13 @@
 /*
  * Copyright (c) 2017, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
- *
+ * 
  * All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -16,30 +16,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/// This is an awesome library. More dartdocs go here.
-library fcm_push;
+     
+library fcm_push.cmdline;
 
 import 'dart:async';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'package:tuple/tuple.dart';
-import 'package:validate/validate.dart';
-import 'package:http_utils/http_utils.dart';
-import 'package:logging/logging.dart';
+import 'dart:io';
+import 'dart:math' as math;
+
+import 'package:args/args.dart';
 import 'package:ansicolor/ansicolor.dart';
+import 'package:logging/logging.dart';
+import 'package:path/path.dart' as path;
+import 'package:validate/validate.dart';
+import 'package:yaml/yaml.dart' as yaml;
+import 'package:logging/logging.dart';
+import 'package:logging_handlers/logging_handlers_shared.dart';
 
-export 'package:tuple/tuple.dart';
+import 'package:fcm_push/fcm_push.dart';
 
-
-part 'fcm_push/fcm.dart';
-part 'fcm_push/exception.dart';
-part 'fcm_push/Message.dart';
-
-/// prettyPrint for JSON
-const JsonEncoder _PRETTYJSON = const JsonEncoder.withIndent('   ');
+part 'cmdline/Application.dart';
+part 'cmdline/Config.dart';
+part 'cmdline/Options.dart';
 
 /// Define some Pens to use it everywhere
 final AnsiPen _penGreen = new AnsiPen()..green();
-final AnsiPen _penInfo = new AnsiPen()..blue();
-
+final AnsiPen _penError = new AnsiPen()..red();

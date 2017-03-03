@@ -1,7 +1,7 @@
 name: fcm_push
-description: Add your description for fcm-push
+description: A Dart interface to Firebase Cloud Messaging (FCM) for Android and iOS
 author: Mike Mitterer <office@mikemitterer.at>
-homepage: https://github.com/Mike Mitterer/dart-fcm-push
+homepage: https://github.com/MikeMitterer/dart-fcm-push
 
 version: 1.0.0
 
@@ -32,6 +32,10 @@ dependencies:
   tuple: any
 
   http_utils: any
+
+  yaml: ^2.1.0
+  
+  ansicolor: any
 
 dev_dependencies:
   test: any

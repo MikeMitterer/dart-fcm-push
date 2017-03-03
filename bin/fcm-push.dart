@@ -1,24 +1,31 @@
 import 'dart:async';
+import 'dart:convert';
+import 'package:fcm_push/cmdline.dart';
 import 'package:fcm_push/fcm_push.dart';
+import 'package:ansicolor/ansicolor.dart';
 
-Future main(List<String> arguments) async {
-    print("Hello fcm-push");
+/// Define some Pens to use it everywhere
+final AnsiPen _penError = new AnsiPen()..red();
 
-    final String serverKey = "AAAA8XGDNkg:APA91bG2XDiR10b9ZUrzv-2LAvlJMr_gSaoGQxyo9clvFeazYeyLGKDdJdoB0QyT2z0vguCmQgWjdrKo5oehwY5CJuwAAVIHqP8E7I2eohfwfzDfxtOtRrzcFtZegYemdt0n4eHcTr-c";
+/// prettyPrint for JSON
+const JsonEncoder _PRETTYJSON = const JsonEncoder.withIndent('   ');
 
-    final String token = "fOutRnJla9w:APA91bGLSZzvUoy4c2Dm1im2efga5x2MI7dCGU_Urlj1UodiGONOHVlKRk4S1MEI3KVAlX2tKbhw1Xfis-s-on6vdmv0DkjNNxYNa0Pn7fY-CR9ubC1se-Ao9PPiSvZlHMMq8uWJkLM5";
+Future<int> main(List<String> arguments) async {
+    final Application app = new Application();
 
-    final FCM fcm = new FCM(serverKey);
+    try {
+        await app.run(arguments);
 
-    //print(message.toString());
+    } on FCMException catch (e) {
+        print("StatusCode: ${_penError(e.statusCode.toString())}");
 
-    final String messageID = await fcm.send(
-        new Message(token)
-            ..collapseKey = "your_collapse_key"
-            ..data.add(new Tuple2<String,dynamic>("your_custom_data_key", 'your_custom_data_value'))
-            ..title = "Title - From DART 1"
-            ..body = "Body"
-    );
+        String message = e.message.toString();
+        try {
+            message = _PRETTYJSON.convert(JSON.decode(e.message));
+        } finally {
+            print("${_penError(message)}");
+        }
+    }
 
-    print("MessageID: ${messageID}");
+    return 0;
 }
