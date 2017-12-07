@@ -19,7 +19,8 @@ test() {
 @Task()
 analyze() {
     final List<String> libs = [
-        "lib/fcm-push.dart"
+        "lib/fcm_push.dart",
+        "lib/cmdline.dart"
     ];
 
     libs.forEach((final String lib) => Analyzer.analyze(lib));

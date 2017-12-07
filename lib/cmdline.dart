@@ -29,7 +29,6 @@ import 'package:logging/logging.dart';
 import 'package:path/path.dart' as path;
 import 'package:validate/validate.dart';
 import 'package:yaml/yaml.dart' as yaml;
-import 'package:logging/logging.dart';
 import 'package:logging_handlers/logging_handlers_shared.dart';
 
 import 'package:fcm_push/fcm_push.dart';
