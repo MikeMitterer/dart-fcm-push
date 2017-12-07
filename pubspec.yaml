@@ -3,7 +3,7 @@ description: A Dart interface to Firebase Cloud Messaging (FCM) for Android and 
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-fcm-push
 
-version: 1.1.1
+version: 1.0.1
 
 environment:
   sdk: '>=1.8.0 <2.0.0'
@@ -26,6 +26,8 @@ dependencies:
   tuple: ^1.0.0
 
   http_utils: ^1.4.0
+
+  ansicolor: ^0.0.9
 
 dev_dependencies:
   test: any
