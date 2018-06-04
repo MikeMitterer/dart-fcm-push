@@ -49,17 +49,17 @@ class FCM {
     /// https://firebase.google.com/docs/cloud-messaging/http-server-ref#table4
     ///
     Future<String> send(final Message message) async {
-        final String json = message.toString();
+        final String jsonMessage = message.toString();
         //_options.headers['Content-Length'] = json.
 
         final Uri uri = new Uri(scheme: "https", host: _options.host, port: _options.port, path: _options.path);
         _logSendInfo(message);
         
-        final http.Response response = await http.post(uri,headers: _options.headers,body: json);
+        final http.Response response = await http.post(uri,headers: _options.headers,body: jsonMessage);
         Map<String,dynamic> body;
 
         try {
-            body = JSON.decode(response.body);
+            body = json.decode(response.body);
             _logResponse(response,body);
         } on FormatException {
             _logResponse(response);

@@ -64,7 +64,7 @@ class Message {
     }
 
     @override
-    String toString() => JSON.encode(toJson());
+    String toString() => json.encode(toJson());
 
     // - private -------------------------------------------------------------------------------------------------------
 

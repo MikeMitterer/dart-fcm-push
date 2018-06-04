@@ -21,7 +21,7 @@ Future<int> main(List<String> arguments) async {
 
         String message = e.message.toString();
         try {
-            message = _PRETTYJSON.convert(JSON.decode(e.message));
+            message = _PRETTYJSON.convert(json.decode(e.message));
         } finally {
             print("${_penError(message)}");
         }
