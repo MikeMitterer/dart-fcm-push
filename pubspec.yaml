@@ -16,7 +16,7 @@ executables:
   fcm-push:
 
 dependencies:
-  args: ^0.13.0
+  args: ^1.4.0
   yaml: ^2.1.0
 
   firebase: ^4.0.0
@@ -40,3 +40,9 @@ dependencies:
 dev_dependencies:
   test: any
   grinder: any
+
+  build_runner: ^0.8.0
+  build_test: ^0.10.0
+  build_web_compilers: ^0.4.0
+
+
