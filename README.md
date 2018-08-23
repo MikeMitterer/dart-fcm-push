@@ -13,7 +13,7 @@ You can use fcm-push either as commandline tool or you can use it as a library.
 
 Activate fcm-push:
 ```bash
-pub globale activate fcm_push
+pub global activate fcm_push
 ```
 
 Create fcm-push.yaml:
