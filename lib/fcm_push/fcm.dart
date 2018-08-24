@@ -27,7 +27,7 @@ class _FCMOptions {
     String path = '/fcm/send';
     String method = "POST";
     bool keepAlive = false;
-    Map<String,dynamic> headers = new Map<String,dynamic>();
+    Map<String,String> headers = new Map<String,String>();
 }
 
 // JS-Version: https://github.com/nandarustam/fcm-push/blob/master/lib/fcm.js

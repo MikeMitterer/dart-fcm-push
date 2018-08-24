@@ -6,8 +6,14 @@ You can use fcm-push either as commandline tool or you can use it as a library.
 ## Prerequisite
    - [Setup FB](https://firebase.google.com/docs/cloud-messaging/)
    - [Firebase Cloud Messaging step by step](https://www.youtube.com/watch?v=jh9Yqfq5CSg&t=5s)
-   - [Android Application - Quick start](https://github.com/firebase/quickstart-android/tree/master/messaging)  
+   - [Android Application - Quick start](https://github.com/firebase/quickstart-android/tree/master/messaging)
+   - [Server Key - StackOverflow](https://stackoverflow.com/a/42439563/504184)  
    (Maybe someone want's to create a Flutter-Sample)
+   
+In your `fcm-push.yaml` (see below) you need your *fcm.server.key* and *token*
+
+For the server.key go to your Firebase console / Settings
+![Screenshot][1]  
        
 ## Command-line
 
@@ -66,7 +72,7 @@ Future<int> main() async {
    
 ### License
 
-    Copyright 2017 Michael Mitterer (office@mikemitterer.at),
+    Copyright 2018 Michael Mitterer (office@mikemitterer.at),
     IT-Consulting and Development Limited, Austrian Branch
 
     Licensed under the Apache License, Version 2.0 (the "License");
