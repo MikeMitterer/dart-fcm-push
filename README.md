@@ -10,11 +10,14 @@ You can use fcm-push either as commandline tool or you can use it as a library.
    - [Server Key - StackOverflow](https://stackoverflow.com/a/42439563/504184)  
    (Maybe someone want's to create a Flutter-Sample)
    
-In your `fcm-push.yaml` (see below) you need your *fcm.server.key* and *token*
+In your `fcm-push.yaml` (see below) you need your **fcm.server.key** and **token**
 
-For the server.key go to your Firebase console / Settings
-![Screenshot][1]  
-       
+For the **server.key** go to your Firebase console / Settings:
+![Screenshot](https://raw.githubusercontent.com/MikeMitterer/dart-fcm-push/master/doc/images/server-key.png)  
+     
+For the **token** check out this Android-Example on GitHub: https://github.com/MikeMitterer/fcm-push-Frontend
+The **token** get's logged to the console - see [line #39 in MyFirebaseInstanceIDService.java](https://github.com/MikeMitterer/fcm-push-Frontend/blob/master/app/src/main/java/com/google/firebase/quickstart/fcm/MyFirebaseInstanceIDService.java#L39)
+      
 ## Command-line
 
 Activate fcm-push:
