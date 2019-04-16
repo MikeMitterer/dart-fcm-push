@@ -1,13 +1,13 @@
 /*
  * Copyright (c) 2017, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
- * 
+ *
  * All Rights Reserved.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *    http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -16,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-     
+
 part of fcm_push;
 
 /// FCM Option defined here: https://firebase.google.com/docs/cloud-messaging/server
@@ -54,7 +54,7 @@ class FCM {
 
         final Uri uri = new Uri(scheme: "https", host: _options.host, port: _options.port, path: _options.path);
         _logSendInfo(message);
-        
+
         final http.Response response = await http.post(uri,headers: _options.headers,body: jsonMessage);
         Map<String,dynamic> body;
 
@@ -66,16 +66,23 @@ class FCM {
         }
 
         // https://firebase.google.com/docs/cloud-messaging/http-server-ref#table4
+        // https://firebase.google.com/docs/cloud-messaging/http-server-ref#table6
         switch(response.statusCode) {
             case HttpStatus.HTTP_200_OK:
 
-                if(int.parse(body["success"].toString()) == 1) {
+                // Topic
+                if(body.containsKey("message_id")) {
+                    return body["message_id"].toString();
+                }
+                // Token
+                else if(int.parse(body["success"].toString()) == 1) {
                     return body["results"].first["message_id"];
-                } else {
+                }
+                else {
                     throw new FCMException(response.statusCode,response.body);
                 }
                 break;
-                
+
             case HttpStatus.HTTP_503_UNAVAILABLE:
             default:
                 throw new FCMException(response.statusCode,response.body);
